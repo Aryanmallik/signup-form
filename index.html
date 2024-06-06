@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+      <link rel="icon" type="image/x-icon" href="https://static.wikia.nocookie.net/vsbattles/images/5/5f/F22_fighter_jet_r.png/revision/latest?cb=20190303050902">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="css.css" />
+</head>
+<body>
+    <div id="parent">
+        <div id="picture">
+            <p id="textop">F-22 Raptor</p>
+        </div>
+        <div class="formcontainer">
+            <form action="#" method="post" id="signup-form">
+                <div class="namefields">
+                    <div class="formgroup">
+                        <label for="firstName">First Name*</label>
+                        <input type="text" name="firstName" id="firstName" required/>
+                    </div>
+                    <div class="formgroup">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" id="lastName"/>
+                    </div>
+                </div>
+                <div class="namefields">
+                    <div class="formgroup">
+                        <label for="email">Email*</label>
+                        <input type="email" name="email" id="email"required/>
+                    </div>
+                    <div class="formgroup">
+                        <label for="num">Phone Number*</label>
+                        <input type="tel" name="num" id="num"required/>
+                    </div>
+                </div>
+                <div class="namefields">
+                    <div class="formgroup">
+                        <label for="pwd">Password*</label>
+                        <input type="password" name="pwd" id="pwd" minlength="8" maxlenght="12" required/>
+                    </div>
+                    <div class="formgroup">
+                        <label for="pwd2">Confirm Password*</label>
+                        <input type="password" name="pwd2" id="pwd2" required/>
+                    </div>
+                </div>
+                <p id="error-message" style="color: red; display: none;">Passwords do not match!</p>
+                <div class="formgroup">
+                    <button type="submit" class="Button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var passwordField = document.getElementById('pwd');
+        var confirmPasswordField = document.getElementById('pwd2');
+        var errorMessage = document.getElementById('error-message');
+
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            if (passwordField.value !== confirmPasswordField.value) {
+                event.preventDefault();
+                errorMessage.textContent = 'Passwords do not match!';
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+
+        confirmPasswordField.addEventListener('input', function() {
+            if (passwordField.value !== confirmPasswordField.value) {
+                errorMessage.textContent = 'Passwords do not match!';
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
